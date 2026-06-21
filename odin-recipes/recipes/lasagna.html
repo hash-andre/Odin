@@ -3,27 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font and style-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/recipes_style.css">
     <title>Lasagna Recipe</title>
 </head>
 <body>
-    <img src="../img/lasagna.jpg" alt="A baked lasagna" width="500">
+    <img class="food_image" src="../img/lasagna.jpg" alt="A baked lasagna" width="500">
 
-    <h1>Lasagna</h1>
+    <div class="description">
+        <p>
+            Lasagna is a classic Italian dish made with layers of pasta, meat sauce,
+            béchamel sauce, and cheese. It is baked in the oven until the top becomes
+            golden and the layers are rich and flavorful.
+        </p>
 
-    <h2>Description</h2>
-    <p>
-        Lasagna is a classic Italian dish made with layers of pasta, meat sauce,
-        béchamel sauce, and cheese. It is baked in the oven until the top becomes
-        golden and the layers are rich and flavorful.
-    </p>
+        <p>
+            This recipe is perfect for a family meal or a special dinner. It takes some
+            time to prepare, but the result is worth it.
+        </p>
+    </div>
 
-    <p>
-        This recipe is perfect for a family meal or a special dinner. It takes some
-        time to prepare, but the result is worth it.
-    </p>
+    <div class="title">
+        <h1>Lasagna</h1>
+    </div>
 
-    <h2>Ingredients</h2>
-    <ul>
+    <h2 class="subtitle">Ingredients</h2>
+    <ul class="ingredients">
         <li>Lasagna sheets</li>
         <li>Ground beef</li>
         <li>Tomato sauce</li>
@@ -37,8 +45,8 @@
         <li>Salt and pepper</li>
     </ul>
 
-    <h2>Steps</h2>
-    <ol>
+    <h2 class="subtitle">Steps</h2>
+    <ol class="steps">
         <li>Chop the onion, carrot, and celery.</li>
         <li>Heat some olive oil in a pan and cook the vegetables for a few minutes.</li>
         <li>Add the ground beef and cook until browned.</li>

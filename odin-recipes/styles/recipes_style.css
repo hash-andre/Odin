@@ -1,0 +1,75 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5ead7;
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    color: #3b2f24;
+    text-align: center;
+}
+
+img.food_image{
+    max-width: 90%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 25% 10%;
+}
+
+.description{
+    margin: 10px 30px 30px;
+    padding: 14px;
+}
+
+.description::after {
+    content: "";
+    display: block;
+    width: 220px;
+    border-bottom: 3px double #3b2f24;
+    margin: 24px auto 0;
+}
+
+.title h1 {
+    font-family: "Pinyon Script", cursive;
+    font-size: 50px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.subtitle{
+    font-family: "Pinyon Script", cursive;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.ingredients,
+.steps {
+    max-width: 500px;
+    margin: 20px auto;
+    text-align: left;
+    line-height: 1.6;
+}
+
+a {
+    color: #8b3a1e;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #b54824;
+    text-decoration: underline;
+}
+
+
+footer::before{
+    content: "";
+    display: block;
+    width: 220px;
+    border-bottom: 3px double #3b2f24;
+    margin: 0 auto 0;
+}
+
+footer{
+    margin: 30px 30px 30px;
+}

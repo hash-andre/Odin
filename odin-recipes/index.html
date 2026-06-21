@@ -3,16 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font and style-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/index_style.css">
     <title>Recipes</title>
 </head>
 <body>
-    <img src="./img/recipes_book.jpg" alt="A book of recipes" width="500">
-    <p>Welcome to Odin recipes! Here you can find some recipes I really like: have fun try to cook them!</p>
-    <h1>Odin Recipes</h1>
+    <img class="recipe_image" src="./img/recipes_book.jpg" alt="A book of recipes" width="500">
+    <div class="description"> 
+        <p>
+            <em>Welcome to Odin Recipes, a small collection of dishes I enjoy. Pick a recipe and start cooking!</em>
+        </p>
+    </div>
+    <div class="title">
+        <h1>Recipes</h1>
+    </div>
     <ul>
         <li><a href="recipes/tiramisu.html">Tiramisu</a></li>
         <li><a href="recipes/lasagna.html">Lasagna</a></li>
         <li><a href="recipes/pizza.html">Pizza</a></li>
     </ul>
+    <footer>
+        <p><em>&hearts; Built with love by Yujiho. &hearts;</em></p>
+    </footer>
 </body>
 </html>
+

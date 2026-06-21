@@ -3,26 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font and style-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/recipes_style.css">
     <title>Tiramisu Recipe</title>
 </head>
 <body>
-    <img src="../img/tiramisu.jpg" alt="A sweet tiramisu" width="500">
+    <img class="food_image" src="../img/tiramisu.jpg" alt="A sweet tiramisu" width="500">
 
-    <h1>Tiramisu</h1>
-
-    <h2>Description</h2>
+    <div class="description">
     <p>
         Tiramisu is a classic Italian dessert made with ladyfingers, coffee,
         mascarpone cream, and cocoa powder. It is soft, creamy, and full of flavor.
     </p>
-
     <p>
         This dessert does not need to be baked. It is prepared in layers and then
         chilled in the fridge before serving.
     </p>
+    </div>
+        
+    <div class="title">
+        <h1>Tiramisu</h1>
+    </div>
 
-    <h2>Ingredients</h2>
-    <ul>
+    <h2 class="subtitle">Ingredients</h2>
+    <ul class="ingredients">
         <li>Ladyfingers</li>
         <li>Mascarpone cheese</li>
         <li>Eggs</li>
@@ -32,8 +39,8 @@
         <li>Dark chocolate flakes</li>
     </ul>
 
-    <h2>Steps</h2>
-    <ol>
+    <h2 class="subtitle">Steps</h2>
+    <ol class="steps">
         <li>Prepare the coffee and let it cool.</li>
         <li>Separate the egg yolks from the egg whites.</li>
         <li>Mix the egg yolks with sugar until creamy.</li>
