@@ -1,153 +1,373 @@
-:root{
+:root {
     --dark-background-color: #1F2937;
     --quote-background-color: #E5E7EB;
 
+    --main-text-color: #F9FAF8;
     --secondary-text-color: #E5E7EB;
+    --dark-text-color: #1F2937;
+
+    --button-color: #3882F6;
+    --button-hover-color: #2673ef;
+
+    --card-border-color: #3882F6;
+
     --secondary-text-size: 18px;
+    --hero-title-size: 48px;
+    --hero-title-size-mobile: 36px;
+    --logo-size: 24px;
 
+    --page-max-width: 1100px;
+    --section-padding-x: 100px;
+    --section-padding-x-mobile: 24px;
+
+    --border-radius-small: 6px;
+    --border-radius-medium: 10px;
 }
 
-*{
-    font-family: 'Roboto', 'Roboto override', sans-serif;
+/* GLOBAL --------------------------- */
+
+* {
     box-sizing: border-box;
-
-    
 }
 
-body{
+body {
+    min-width: 320px;
+    min-height: 100vh;
     margin: 0;
-}
 
-/* HEADER PART --------------------------- */
-.header{
-    background-color: var(--dark-background-color);
+    font-family: 'Roboto', sans-serif;
+
     display: flex;
     flex-direction: column;
-    padding: 0 100px;
 }
 
-.navbar{
+.main {
+    /*
+      This helps push the footer to the bottom when the page
+      content is shorter than the viewport.
+
+      On very large screens, this does not magically improve spacing;
+      max-width containers are used for that.
+    */
+    flex: 1;
+}
+
+.button {
+    cursor: pointer;
+    background-color: var(--button-color);
+    color: var(--main-text-color);
+
+    border: 1px solid var(--button-color);
+    border-radius: var(--border-radius-small);
+
+    padding: 8px 28px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.button:hover {
+    background-color: var(--button-hover-color);
+}
+
+.button:active {
+    transform: scale(0.95);
+}
+
+/* HEADER + NAVBAR --------------------------- */
+
+.site-header {
+    background-color: var(--dark-background-color);
+    padding: 0 var(--section-padding-x);
+}
+
+.navbar,
+.hero,
+.info,
+.quote-inner,
+.cta-card {
+    max-width: var(--page-max-width);
+    margin: 0 auto;
+}
+
+.navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    gap: 24px;
+    padding: 18px 0;
 }
 
-.logo{
-    font-size: 24px;
-    font-weight: bold;
-    color: #F9FAF8
+.logo {
+    font-size: var(--logo-size);
+    font-weight: 700;
+    color: var(--main-text-color);
 }
 
-ul{
+.nav-links {
     list-style-type: none;
+    margin: 0;
     padding: 0;
+
     display: flex;
-    gap: 20px;
+    gap: 24px;
 }
 
-a{
+.nav-links a {
     text-decoration: none;
-    font-size: 18px;
-    color: #E5E7EB;
+    font-size: var(--secondary-text-size);
+    color: var(--secondary-text-color);
 }
 
-a:hover{
-    cursor: pointer;
+.nav-links a:hover {
     color: #cdd6e7;
 }
 
-li:active {
-  transform: scale(0.95);
-}
+/* HERO --------------------------- */
 
-/* HERO PART --------------------------- */
-
-.hero{
+.hero {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 50px 0;
+    justify-content: space-between;
+
+    gap: 48px;
+    padding: 72px 0;
 }
 
-.hero-text > h1{
-    margin: 0;
-    font-size: 48px;
+.hero-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.hero-text h1 {
+    margin: 0 0 8px;
+    font-size: var(--hero-title-size);
+    line-height: 1.1;
     font-weight: 900;
-    color: #F9FAF8
+    color: var(--main-text-color);
 }
 
-.hero-text > p{
-    margin: 0;
-    font-size: 18px;
-    color: #E5E7EB;
+.hero-text p {
+    margin: 0 0 12px;
+    font-size: var(--secondary-text-size);
+    color: var(--secondary-text-color);
 }
 
-.hero-text > button{
-    box-sizing: content-box;
-    margin-top: 10px;
-    background-color: #3882F6;
-    width: 110px;
-    height: 30px;
-    border-radius: 5px;
-    border: 1px solid black;
-    padding: 2px;
-    font-size: 18px;
-    font-weight: 600;
-    color: #E5E7EB;
-}
-.hero-text > button:hover{
-    cursor: pointer;
-    background-color: #2673ef;
-}
-.hero-text > button:active {
-  transform: scale(0.95);
-}
+.hero-image {
+    flex: 1;
+    max-width: 400px;
+    min-height: 200px;
 
-.hero-image{
-    width: 1000px;
+    color: var(--secondary-text-color);
+    border-radius: var(--border-radius-small);
+    box-shadow: 8px 5px 12px #000000;
 
-}
-
-/* INFO PART --------------------------- */
-
-.info{
-    padding: 50px 0;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.cards{
-    display: flex;
-    gap: 20px;
+/* INFO SECTION --------------------------- */
+
+.info {
+    padding: 52px var(--section-padding-x);
+    text-align: center;
 }
 
-.card{
+.info h2 {
+    margin: 0 0 40px;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--dark-text-color);
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.card {
+    width: 160px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 
-.card > img{
-    width: 100px;
-    height: 100px;
-    border: 3px solid #3882F6;
-    border-radius: 5px;
+.card-image {
+    width: 150px;
+    height: 150px;
+
+    border: 4px solid var(--card-border-color);
+    border-radius: var(--border-radius-medium);
+    background-color: #f3f4f6;
 }
 
-.card > p{
+.card p {
+    margin: 8px 0 0;
     font-size: 14px;
+    color: #4b5563;
 }
 
-/* FOOTER PART --------------------------- */
-.footer{
+/* QUOTE SECTION --------------------------- */
+
+.quote-section {
+    background-color: var(--quote-background-color);
+    padding: 80px var(--section-padding-x);
+}
+
+.quote-inner {
+    display: flex;
+    flex-direction: column;
+}
+
+.quote-inner q {
+    color: var(--dark-text-color);
+    font-size: 36px;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.25;
+}
+
+.quote-author {
+    margin: 16px 0 0;
+    color: var(--dark-text-color);
+    font-size: 18px;
+    font-weight: 700;
+    align-self: flex-end;
+}
+
+/* CALL TO ACTION --------------------------- */
+
+.cta-section {
+    padding: 80px var(--section-padding-x);
+}
+
+.cta-card {
+    background-color: var(--button-color);
+    border-radius: var(--border-radius-medium);
+    padding: 48px 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 32px;
+    color: var(--main-text-color);
+}
+
+.cta-text h3,
+.cta-text p {
+    margin: 0;
+}
+
+.cta-text h3 {
+    font-size: 22px;
+}
+
+.cta-text p {
+    color: var(--secondary-text-color);
+}
+
+.cta-button {
+    border-color: var(--main-text-color);
+    flex-shrink: 0;
+}
+
+/* FOOTER --------------------------- */
+
+.footer {
     background-color: var(--dark-background-color);
+    color: var(--secondary-text-color);
+
     display: flex;
     align-items: center;
     justify-content: center;
 
-    font-size: 18px;
-    color: #E5E7EB;
-    padding: 10px 0;
+    padding: 32px 16px;
+    text-align: center;
+}
+
+/* RESPONSIVE --------------------------- */
+
+@media (max-width: 800px) {
+    .site-header {
+        padding: 0 var(--section-padding-x-mobile);
+    }
+
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 32px;
+        padding: 48px 0;
+    }
+
+    .hero-text h1 {
+        font-size: var(--hero-title-size-mobile);
+    }
+
+    .hero-image {
+        width: 100%;
+    }
+
+    .info {
+        padding: 48px var(--section-padding-x-mobile);
+    }
+
+    .cards {
+        gap: 28px;
+    }
+
+    .quote-section {
+        padding: 56px var(--section-padding-x-mobile);
+    }
+
+    .quote-inner q {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .quote-author {
+        align-self: center;
+        text-align: center;
+    }
+
+    .cta-section {
+        padding: 56px var(--section-padding-x-mobile);
+    }
+
+    .cta-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 32px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .info h2 {
+        font-size: 28px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 220px;
+    }
+
+    .quote-inner q {
+        font-size: 24px;
+    }
 }

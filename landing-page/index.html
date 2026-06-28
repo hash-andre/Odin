@@ -1,81 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <title>Landing page</title>
-    </head>
-    <body>
-        <header class="header">
-            <nav class="navbar">
-                <div class="logo">Header Logo</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OwlWatch Landing Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- PART 1: HEADER + HERO -->
+    <header class="site-header">
+        <nav class="navbar">
+            <div class="logo">OwlWatch</div>
 
-                <ul class="nav-links">
-                    <li><a href="#">header link one</a></li>
-                    <li><a href="#">header link two</a></li>
-                    <li><a href="#">header link three</a></li>
-                </ul>
-            </nav>
+            <ul class="nav-links">
+                <li><a href="#">Species</a></li>
+                <li><a href="#">Habitats</a></li>
+                <li><a href="#">Conservation</a></li>
+            </ul>
+        </nav>
 
-            <section class="hero">
-                <div class="hero-text">
-                    <h1>This website is awesome</h1>
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Discover the silent world of owls</h1>
 
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                        Iure illo eveniet sunt laborum minima dolorem nihil repellat
-                        voluptatum voluptatibus!
-                    </p>
+                <p>
+                    Owls are mysterious night hunters with incredible vision,
+                    silent flight, and a vital role in natural ecosystems.
+                </p>
 
-                    <button class="sign-up">Sign up</button>
-                </div>
+                <button class="button">Explore</button>
+            </div>
 
-                <img 
-                    class="hero-image"
-                    src="https://imgs.search.brave.com/Rz-bGydbh2w3cfE6bzHCRV59Wu0iNvy0zmWDOMCxt9M/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wcmV2/aWV3LnJlZGQuaXQv/cGxlYXNlLXBvc3Qt/eW91ci1mYXZvcml0/ZS1waWN0dXJlLW9mLXlvdXItZG9nZ28tcy12MC1jNWVpNmthZHA4c2UxLmpwZWc_d2lkdGg9MTA4MCZmb3JtYXQ9cGpwZyZhdXRvPXdlYnAmcz05NzRhZmY4NWVhMWY2ZmVkYjAxYWY5NjliNWQ4ZjdlMjBlNDIyNmUw"
-                    alt="A dog"
-                >
-            </section>
-        </header>
+            <!-- Replace this placeholder with a real image later -->
+             <img class="hero-image" src="images/owl-hero.jpg" alt="a hero image of an owl">
+        </section>
+    </header>
 
+    <!-- PART 2: MAIN CONTENT -->
+    <main class="main">
         <section class="info">
-            <h2>Some random information.</h2>
+            <h2>Meet the night hunters.</h2>
 
             <div class="cards">
-                <div class="card">
-                    <img src="" alt="Description of image one">
-                    <p>Random information</p>
-                </div>
+                <article class="card">
+                    <img class="card-image" src="images/owl-wings.jpg" alt="owl wings">
+                    <p>Silent wings help owls fly without alerting their prey.</p>
+                </article>
 
-                <div class="card">
-                    <img src="" alt="Description of image two">
-                    <p>Random information</p>
-                </div>
+                <article class="card">
+                    <img class="card-image" src="images/owl-eyes.jpg" alt="eyes">
+                    <p>Large eyes give owls excellent vision in low light.</p>
+                </article>
 
-                <div class="card">
-                    <img src="" alt="Description of image three">
-                    <p>Random information</p>
-                </div>
+                <article class="card">
+                   <img class="card-image" src="images/owl-talons.jpg" alt="owl talons">
+                    <p>Sharp talons make owls precise and powerful hunters.</p>
+                </article>
 
-                <div class="card">
-                    <img src="" alt="Description of image four">
-                    <p>Random information</p>
-                </div>
+                <article class="card">
+                    <img class="card-image" src="images/owl-forest.jpg" alt="habitat">
+                    <p>Owls live in forests, deserts, mountains, and cities.</p>
+                </article>
             </div>
         </section>
 
+        <section class="quote-section">
+            <div class="quote-inner">
+                <q>The owl sees in the dark what others miss in the light.</q>
+                <p class="quote-author">- Ancient woodland proverb</p>
+            </div>
+        </section>
 
-        <div class="footer">
-            Copyright &reg; The Odin Project 2026
-        </div>
-    </body>
+        <section class="cta-section">
+            <div class="cta-card">
+                <div class="cta-text">
+                    <h3>Ready to explore the owl world?</h3>
+                    <p>Join OwlWatch and learn more about these incredible birds.</p>
+                </div>
+
+                <button class="button cta-button">Sign up</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- PART 3: FOOTER -->
+    <footer class="footer">
+        Copyright &copy; The Odin Project 2026
+    </footer>
+</body>
 </html>
-
-<!--Body
-        head
-            header
-                logo <-> ul
-            descriptor
-                info
-    -->
