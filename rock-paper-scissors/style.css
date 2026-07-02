@@ -8,15 +8,21 @@
   --button-bg: #5b6dcd;
   --button-bg-hover: #465ac7;
   --button-text: #ffffff;
+  --text-decoration: #5b6dcd;
 }
 
-/* Override manuale: dark */
+/* Override on Dark theme */
 :root.dark {
   --bg-color: #111827;
   --text-color: #f9fafb;
   --button-bg: #7c8cff;
   --button-bg-hover: #6677e8;
   --button-text: #ffffff;
+  --text-decoration: ;
+}
+
+:root.dark ::selection {
+  background-color: #cd0a0a;
 }
 
 body {
@@ -81,4 +87,11 @@ button:hover {
 
 button:active {
   transform: scale(0.95);
+}
+
+footer {
+  width: 100%;
+  padding: 16px;
+  text-align: center;
+  font-size: 14px;
 }

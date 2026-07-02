@@ -27,13 +27,15 @@ function getComputerChoice(){
 function getHumanChoice() {
   let input = window.prompt('Choose: "Rock", "Paper" or "Scissors"?');
 
-  // Null and "" can generate errors and break the code
-  if (input === null || input.trim() === "") {
+  if (input === null) {
+    return null;
+  }
+
+  if (input.trim() === "") {
     window.alert('Invalid choice.');
     return getHumanChoice();
   }
 
-  // Here we want the choice in title case
   input = titleCase(input);
 
   if (choices.includes(input)) {
@@ -45,69 +47,48 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-  if(humanChoice === computerChoice){
-    console.log("It's a tie!");
-    window.alert("It's a tie!");
-    return;
-  }
-  else if(humanChoice === "Rock"){
-    if(computerChoice === "Scissors"){
-        console.log("You won, " + humanChoice + " beats " + computerChoice);
-        window.alert("You won, " + humanChoice + " beats " + computerChoice);
-        humanScore += 1;
-        return;
-    }
-    else if(computerChoice === "Paper"){
-        console.log("You lost, " + computerChoice + " beats " + humanChoice);
-        window.alert("You lost, " + computerChoice + " beats " + humanChoice);
-        computerScore += 1;
-        return;
-    }
+  const winningMoves = {
+    Rock: "Scissors",
+    Paper: "Rock",
+    Scissors: "Paper"
+  };
 
+  if (humanChoice === computerChoice) {
+    return "It's a tie!";
   }
-  else if(humanChoice === "Paper"){
-    if(computerChoice === "Rock"){
-        console.log("You won, " + humanChoice + " beats " + computerChoice);
-        window.alert("You won, " + humanChoice + " beats " + computerChoice);
-        humanScore += 1;
-        return;
-    }
-    else if(computerChoice === "Scissors"){
-        console.log("You lost, " + computerChoice + " beats " + humanChoice);
-        window.alert("You lost, " + computerChoice + " beats " + humanChoice);
-        computerScore += 1;
-        return;
-    }
-    
+
+  if (winningMoves[humanChoice] === computerChoice) {
+    humanScore += 1;
+    return `You won, ${humanChoice} beats ${computerChoice}`;
   }
-  else if(humanChoice === "Scissors"){
-    if(computerChoice === "Paper"){
-        console.log("You won, " + humanChoice + " beats " + computerChoice);
-        window.alert("You won, " + humanChoice + " beats " + computerChoice);
-        humanScore += 1;
-        return;
-    }
-    else if(computerChoice === "Rock"){
-        console.log("You lost, " + computerChoice + " beats " + humanChoice);
-        window.alert("You lost, " + computerChoice + " beats " + humanChoice);
-        computerScore += 1;
-        return;
-    }
-  }
+
+  computerScore += 1;
+  return `You lost, ${computerChoice} beats ${humanChoice}`;
 }
 
-function playGame(){
-    while(round < number_of_rounds){
+function playGame() {
+  while (round < number_of_rounds) {
     const humanSelection = getHumanChoice();
+
+    if (humanSelection === null) {
+      window.alert("Game cancelled.");
+      return;
+    }
+
     const computerSelection = getComputerChoice();
-    
+
     console.log("COMPUTER: " + computerSelection + "\nHUMAN: " + humanSelection);
-    playRound(humanSelection, computerSelection);
+
+    const result = playRound(humanSelection, computerSelection);
+
+    console.log(result);
+    window.alert(result);
+
     console.log("COMPUTER: " + computerScore + "\nHUMAN: " + humanScore);
     window.alert("COMPUTER: " + computerScore + "\nHUMAN: " + humanScore);
 
     round += 1;
-    }
+  }
 }
 
 function resetGame(){
