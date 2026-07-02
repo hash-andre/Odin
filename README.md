@@ -38,7 +38,7 @@ Main topics practiced:
 * `min-width` and `min-height`
 * Project documentation
 
-### 3. Rock Paper Scissors (./rock-paper-scissors)
+### 3. [Rock Paper Scissors](./rock-paper-scissors)
 
 A browser-based Rock Paper Scissors game built with HTML, CSS, and JavaScript.
 
