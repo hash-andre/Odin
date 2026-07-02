@@ -47,6 +47,7 @@ Photos from [Unsplash](https://unsplash.com/):
 * Photo by [Pete Nuij](https://unsplash.com/it/@pete_nuij) on [Unsplash](https://unsplash.com/it/foto/gufo-marrone-e-nero-che-vola-durante-il-giorno-yzFCd2lCmgc)
 * Photo by [Gerrit Stam](https://unsplash.com/it/@gerritstam) on [Unsplash](https://unsplash.com/it/foto/gufo-falco-del-nord-con-prede-su-un-posatoio-sm6hFt2OZ7Y)
 * Photo by [Lukasz Szmigiel](https://unsplash.com/it/@szmigieldesign) on [Unsplash](https://unsplash.com/it/foto/foto-in-condizioni-di-scarsa-illuminazione-della-foresta-2ShvY8Lf6l0)
+* Owl favicon from [SVG Repo](https://www.svgrepo.com/svg/252874/owl), licensed under [CC0 License](https://www.svgrepo.com/page/licensing/).
 
 ## Status
 
