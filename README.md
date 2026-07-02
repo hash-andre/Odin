@@ -37,3 +37,30 @@ Main topics practiced:
 * Image handling
 * `min-width` and `min-height`
 * Project documentation
+
+### 3. Rock Paper Scissors (./rock-paper-scissors)
+
+A browser-based Rock Paper Scissors game built with HTML, CSS, and JavaScript.
+
+The project focuses on basic JavaScript logic, DOM interaction, event listeners, input validation, score tracking, and simple UI controls.
+
+Main topics practiced:
+
+- JavaScript functions
+- Global variables and scope
+- Function return values
+- Callback functions
+- Event listeners
+- DOM manipulation
+- `querySelector()`
+- `classList`
+- Theme toggle
+- User input with `window.prompt()`
+- Input validation
+- Arrays and string methods
+- Conditional logic
+- Game loop
+- CSS custom properties
+- Flexbox layout
+- Button states and transitions
+- Favicon and footer
