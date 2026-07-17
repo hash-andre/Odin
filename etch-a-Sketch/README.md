@@ -43,3 +43,6 @@ I also learned how mouse and touch interaction differ. Hover events work well on
 * HTML
 * CSS
 * JavaScript
+
+## Resources
+* draw-mypaint favicon from [SVG Repo](https://www.svgrepo.com/svg/454415/draw-mypaint-software), licensed under [CC0 License](https://www.svgrepo.com/page/licensing/).

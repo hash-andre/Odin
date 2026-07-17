@@ -18,15 +18,15 @@
     <button id="start-game">Start game</button>
   </main>
 
-  <section class="info">
+  <section class="info" aria-live="polite" aria-atomic="true">
     <p id="score"></p>
     <p id="messages"></p>
   </section>
 
-  <section class="buttons">
-    <button class="selector" id="rock" value="Rock">Rock</button>
-    <button class="selector" id="paper" value="Paper">Paper</button>
-    <button class="selector" id ="scissors" value="Scissors">Scissors</button>
+  <section class="buttons" aria-label="Choose your move">
+    <button class="selector" id="rock" type="button" value="Rock">Rock</button>
+    <button class="selector" id="paper" type="button" value="Paper">Paper</button>
+    <button class="selector" id="scissors" type="button" value="Scissors">Scissors</button>
   </section>
 
   <footer>

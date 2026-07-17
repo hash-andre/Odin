@@ -46,6 +46,8 @@ header {
 main {
   flex: 1;
 
+  transition: flex-grow 600ms ease;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -58,24 +60,72 @@ h1 {
   margin: 0;
 }
 
-section.info{
+section.info {
+  width: min(calc(100% - 2rem), 36rem);
+  min-height: 7rem;
+  margin-inline: auto;
+  padding: clamp(1rem, 3vw, 1.5rem);
+
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  gap: 0.5rem;
+
+  text-align: center;
+}
+
+#score,
+#messages {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+#score {
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  font-weight: bold;
+}
+
+#messages {
+  min-height: 1.5em;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
 }
 
 section.buttons {
-    margin-top: 30px;
+  width: min(calc(100% - 2rem), 42rem);
+  margin: clamp(1.5rem, 4vw, 3rem) auto 0;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 100px;
-    align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  flex: 1;
+  gap: clamp(0.5rem, 2vw, 1.5rem);
+
+  overflow: hidden;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+
+  transition:
+    flex-grow 600ms ease,
+    margin-top 600ms ease,
+    opacity 350ms ease 150ms,
+    transform 600ms ease,
+    visibility 0s;
 }
 
-section.buttons.expanded {
-    flex-grow: 0.2;
+section.buttons:not(.is-visible) {
+  flex-grow: 0;
+  margin-top: 0;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(1.5rem);
+  pointer-events: none;
+}
+
+section.buttons.is-visible {
+  display: grid;
+  align-content: start;
 }
 
 button {
@@ -94,10 +144,13 @@ button {
     box-shadow 150ms ease;
 }
 
-button.selector{
-  height: 110px;
-  width: 185px;
-  display: none;
+button.selector {
+  width: 100%;
+  min-height: clamp(4rem, 14vw, 7rem);
+  padding: clamp(0.75rem, 2vw, 1.25rem);
+
+  font-size: clamp(0.9rem, 2.5vw, 1.15rem);
+  font-weight: bold;
 }
 
 button:hover {
@@ -109,21 +162,23 @@ button:active {
   transform: scale(0.95);
 }
 
-footer{
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+  box-shadow: none;
+  transform: none;
+}
+
+footer {
   width: 100%;
   padding: 16px;
   text-align: center;
   font-size: 14px;
 }
 
-@media (max-width: 480px) {
-  section.buttons{
-    gap: 20px;
+@media (prefers-reduced-motion: reduce) {
+  main,
+  section.buttons {
+    transition: none;
   }
-
-  button.selector{
-  height: 60px;
-  width: 85px;
-  display: none;
-}
 }

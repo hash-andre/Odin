@@ -34,8 +34,8 @@ function handleChoice(event) {
     console.log(result);
 
     score.textContent =
-        `Round: ${round}/${numberOfRounds} — ` +
-        `Computer: ${computerScore} Human: ${humanScore}`;
+        `Round ${round}/${numberOfRounds} · ` +
+        `You ${humanScore} – ${computerScore} Computer`;
 
     if (round === numberOfRounds) {
         gameActive = false;
@@ -104,24 +104,20 @@ themeButton.addEventListener("click", () => {
 
 // Start game
 const startButton = document.querySelector("#start-game");
-const selectorButtons = document.querySelectorAll(".selector");
-const sect = document.querySelector("section");
 const score = document.getElementById("score");
 const msg = document.getElementById("messages");
-const main = document.querySelector("main");
 const btnSect = document.querySelector(".buttons");
+const main = document.querySelector("main");
 
 startButton.addEventListener("click", () => {
     resetGame();
     gameActive = true;
 
     buttons.forEach((button) => {
-        button.style.display = "block";
         button.disabled = false;
     });
 
-    sect.classList.add("expanded");
-    main.style.flexGrow = "0.4";
-    btnSect.style.flexGrow = "0.6"; 
+    main.style.flex = "0.5";
+    btnSect.classList.add("is-visible");
     score.textContent = "Choose your move";
 });
