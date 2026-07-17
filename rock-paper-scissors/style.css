@@ -8,7 +8,6 @@
   --button-bg: #5b6dcd;
   --button-bg-hover: #465ac7;
   --button-text: #ffffff;
-  --text-decoration: #5b6dcd;
 }
 
 /* Override on Dark theme */
@@ -18,7 +17,6 @@
   --button-bg: #7c8cff;
   --button-bg-hover: #6677e8;
   --button-text: #ffffff;
-  --text-decoration: ;
 }
 
 :root.dark ::selection {
@@ -60,8 +58,24 @@ h1 {
   margin: 0;
 }
 
-p {
-  margin: 20px;
+section.info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section.buttons {
+    margin-top: 30px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 100px;
+    align-items: flex-start;
+}
+
+section.buttons.expanded {
+    flex-grow: 0.2;
 }
 
 button {
@@ -80,6 +94,12 @@ button {
     box-shadow 150ms ease;
 }
 
+button.selector{
+  height: 110px;
+  width: 185px;
+  display: none;
+}
+
 button:hover {
   background-color: var(--button-bg-hover);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
@@ -89,9 +109,21 @@ button:active {
   transform: scale(0.95);
 }
 
-footer {
+footer{
   width: 100%;
   padding: 16px;
   text-align: center;
   font-size: 14px;
+}
+
+@media (max-width: 480px) {
+  section.buttons{
+    gap: 20px;
+  }
+
+  button.selector{
+  height: 60px;
+  width: 85px;
+  display: none;
+}
 }
