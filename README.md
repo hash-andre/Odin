@@ -42,25 +42,35 @@ Main topics practiced:
 
 A browser-based Rock Paper Scissors game built with HTML, CSS, and JavaScript.
 
-The project focuses on basic JavaScript logic, DOM interaction, event listeners, input validation, score tracking, and simple UI controls.
+The project expands the original console game into a graphical interface with move buttons, live round results, score tracking, restart controls, and light/dark themes.
 
 Main topics practiced:
 
-- JavaScript functions
-- Global variables and scope
-- Function return values
-- Callback functions
-- Event listeners
-- DOM manipulation
-- `querySelector()`
-- `classList`
-- Theme toggle
-- User input with `window.prompt()`
-- Input validation
-- Arrays and string methods
-- Conditional logic
-- Game loop
-- CSS custom properties
-- Flexbox layout
-- Button states and transitions
-- Favicon and footer
+* JavaScript functions
+* State and score management
+* Callback functions and event listeners
+* DOM manipulation
+* Object-based game rules
+* Theme switching with `classList`
+* Conditional logic and guard clauses
+* CSS custom properties
+* Flexbox and responsive layout
+* Button states and transitions
+* Favicon and footer
+
+### 4. [Etch-a-Sketch](./etch-a-Sketch)
+
+A responsive browser drawing toy built with HTML, CSS, and JavaScript.
+
+The project creates a customizable grid whose cells receive random colors as the user draws. It supports mouse interaction as well as press-and-drag drawing on phones and tablets.
+
+Main topics practiced:
+
+* Dynamic DOM element creation
+* Mouse and touch pointer events
+* Pointer capture and drawing state
+* Random hexadecimal color generation
+* Numeric input validation
+* CSS custom properties and calculations
+* Flexbox and responsive sizing
+* Mobile touch behavior

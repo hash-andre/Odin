@@ -15,15 +15,13 @@ function dropGrid() {
 
 function createGrid(boxesPerSide = 16){
     grid.style.setProperty("--grid-size", boxesPerSide);
-    // const boxDimention = 960 / boxesPerSide;
     for(let i = 0; i < boxesPerSide**2; i++){
         const block = document.createElement("div");
-        // block.style.width = boxDimention + "px";
-        // block.style.height = boxDimention + "px";
+
         block.classList.add("block");
         grid.appendChild(block);
 
-        // logic for hovering
+        // Logic for drawing with a computer
         block.addEventListener('mouseenter', () => {
             block.style.backgroundColor = randomHexColor();
         });
@@ -39,17 +37,53 @@ const clearBtn = document.getElementById("clearBtn");
 clearBtn.addEventListener("click", () => {
     const boxes = document.querySelectorAll(".block");
     for(const box of boxes){
-        box.style.removeProperty("background-color")
+        box.style.removeProperty("background-color");
     }
 });
 
+// gridBtn Event
 gridBtn.addEventListener("click", () => {
-    const input = Number(prompt("Seleziona le box per lato: "));
+    const input = Number(prompt("Select boxes per side (min 1, max 100): "));
 
     if (Number.isInteger(input) && input > 0 && input <= 100) {
         dropGrid();
         createGrid(input);
     } else {
-        alert("Puoi creare una griglia da 1 a 100 box per lato");
+        alert("You can create a grid with 1 to 100 boxes per side.");
     }
-});   
+});
+
+
+// logic for drawing with phone
+let isDrawing = false;
+
+function paintAt(x, y) {
+    const element = document.elementFromPoint(x, y);
+
+    if (element?.classList.contains("block")) {
+        element.style.backgroundColor = randomHexColor();
+    }
+}
+
+grid.addEventListener("pointerdown", (event) => {
+    isDrawing = true;
+
+    grid.setPointerCapture(event.pointerId);
+    paintAt(event.clientX, event.clientY);
+});
+
+grid.addEventListener("pointermove", (event) => {
+    const mouseIsHovering = event.pointerType === "mouse";
+
+    if (mouseIsHovering || isDrawing) {
+        paintAt(event.clientX, event.clientY);
+    }
+});
+
+grid.addEventListener("pointerup", () => {
+    isDrawing = false;
+});
+
+grid.addEventListener("pointercancel", () => {
+    isDrawing = false;
+});
