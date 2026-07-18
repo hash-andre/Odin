@@ -27,12 +27,39 @@ createGrid();
 
 const gridBtn = document.getElementById("gridBtn");
 const clearBtn = document.getElementById("clearBtn");
+const rainbowBtn = document.getElementById("rainbowBtn");
+const drawBtn = document.getElementById("drawBtn");
+let rainbowActive = false;
+let drawActive = false;
+
+function updateModeButtons() {
+    rainbowBtn.classList.toggle("active", rainbowActive);
+    drawBtn.classList.toggle("active", drawActive);
+
+    rainbowBtn.setAttribute("aria-pressed", rainbowActive);
+    drawBtn.setAttribute("aria-pressed", drawActive);
+}
+
+function resetDarkness(element) {
+    element.style.removeProperty("opacity");
+    delete element.dataset.darkness;
+}
+
+function darkenBlock(element) {
+    const currentLevel = Number(element.dataset.darkness) || 0;
+    const nextLevel = Math.min(currentLevel + 1, 10);
+
+    element.dataset.darkness = nextLevel;
+    element.style.backgroundColor = "#000";
+    element.style.opacity = nextLevel / 10;
+}
 
 // ClearBtn event
 clearBtn.addEventListener("click", () => {
     const boxes = document.querySelectorAll(".block");
     for(const box of boxes){
         box.style.removeProperty("background-color");
+        resetDarkness(box);
     }
 });
 
@@ -48,6 +75,20 @@ gridBtn.addEventListener("click", () => {
     }
 });
 
+// rainbowBtn event
+rainbowBtn.addEventListener("click", () =>{
+    rainbowActive = !rainbowActive;
+    drawActive = false;
+    updateModeButtons();
+});
+
+// drawActive event
+drawBtn.addEventListener("click", () =>{
+    drawActive = !drawActive;
+    rainbowActive = false;
+    updateModeButtons();
+});
+
 
 // Drawing logic shared by mouse, touch and pen
 let isDrawing = false;
@@ -58,7 +99,18 @@ function paintAt(x, y) {
     const element = document.elementFromPoint(x, y);
 
     if (element?.classList.contains("block") && element !== lastPaintedBlock) {
-        element.style.backgroundColor = randomHexColor();
+        if(rainbowActive){
+            resetDarkness(element);
+            element.style.backgroundColor = randomHexColor();
+        }
+        else if(drawActive){
+            darkenBlock(element);
+        }
+        else{
+            resetDarkness(element);
+            element.style.backgroundColor = "rgb(20 20 20 / 85%)";
+        }
+
         lastPaintedBlock = element;
     }
 }

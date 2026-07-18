@@ -58,7 +58,7 @@ Main topics practiced:
 * Button states and transitions
 * Favicon and footer
 
-### 4. [Etch-a-Sketch](./etch-a-Sketch)
+### 4. [Etch-a-Sketch](./etch-a-sketch)
 
 A responsive browser drawing toy built with HTML, CSS, and JavaScript.
 
