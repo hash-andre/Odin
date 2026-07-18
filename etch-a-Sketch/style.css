@@ -32,6 +32,7 @@ body {
     border-radius: 18px;
     background-color: #fffaf0;
     box-shadow: 0 16px 35px rgb(0 0 0 / 20%);
+    cursor: crosshair;
 }
 
 .block {

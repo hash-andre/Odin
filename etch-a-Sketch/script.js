@@ -20,11 +20,6 @@ function createGrid(boxesPerSide = 16){
 
         block.classList.add("block");
         grid.appendChild(block);
-
-        // Logic for drawing with a computer
-        block.addEventListener('mouseenter', () => {
-            block.style.backgroundColor = randomHexColor();
-        });
     }
 }
 
@@ -54,36 +49,51 @@ gridBtn.addEventListener("click", () => {
 });
 
 
-// logic for drawing with phone
+// Drawing logic shared by mouse, touch and pen
 let isDrawing = false;
+let activePointerId = null;
+let lastPaintedBlock = null;
 
 function paintAt(x, y) {
     const element = document.elementFromPoint(x, y);
 
-    if (element?.classList.contains("block")) {
+    if (element?.classList.contains("block") && element !== lastPaintedBlock) {
         element.style.backgroundColor = randomHexColor();
+        lastPaintedBlock = element;
     }
 }
 
 grid.addEventListener("pointerdown", (event) => {
+    // On desktop, draw only with the primary (left) mouse button.
+    if (!event.isPrimary || (event.pointerType === "mouse" && event.button !== 0)) {
+        return;
+    }
+
     isDrawing = true;
+    activePointerId = event.pointerId;
+    lastPaintedBlock = null;
 
     grid.setPointerCapture(event.pointerId);
     paintAt(event.clientX, event.clientY);
 });
 
 grid.addEventListener("pointermove", (event) => {
-    const mouseIsHovering = event.pointerType === "mouse";
-
-    if (mouseIsHovering || isDrawing) {
-        paintAt(event.clientX, event.clientY);
+    if (!isDrawing || event.pointerId !== activePointerId) {
+        return;
     }
+
+    paintAt(event.clientX, event.clientY);
 });
 
-grid.addEventListener("pointerup", () => {
-    isDrawing = false;
-});
+function stopDrawing(event) {
+    if (event.pointerId !== activePointerId) {
+        return;
+    }
 
-grid.addEventListener("pointercancel", () => {
     isDrawing = false;
-});
+    activePointerId = null;
+    lastPaintedBlock = null;
+}
+
+grid.addEventListener("pointerup", stopDrawing);
+grid.addEventListener("pointercancel", stopDrawing);
